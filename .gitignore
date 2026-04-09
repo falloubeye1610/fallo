@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Secrets (JWT, DB Passwords, etc) 
+application-secret.properties

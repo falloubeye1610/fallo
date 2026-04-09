@@ -24,14 +24,26 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// Ajout des dépendances pour JPA et H2
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	runtimeOnly 'com.h2database:h2'
+
+	// Ajout des dépendances pour les tests
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
 	testImplementation 'org.mockito:mockito-core:5.11.0'
 	testImplementation 'org.mockito:mockito-junit-jupiter:5.11.0'
+
+	//Spring Security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	//JWT
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.5'
 }
 
 tasks.named('test') {
