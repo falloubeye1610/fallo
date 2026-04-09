@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import sn.ucad.restou.entity.Ticket;
 import sn.ucad.restou.service.TicketService;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import jakarta.validation.Valid;
 
 
 @RestController
@@ -37,7 +37,7 @@ public class TicketController {
     }
     
     @PostMapping
-    public ResponseEntity<Ticket> creer(@RequestBody Ticket ticket) {
+    public ResponseEntity<Ticket> creer(@Valid @RequestBody Ticket ticket) {
         Ticket nouveauTicket = ticketService.creer(ticket);
         return ResponseEntity.status(HttpStatus.CREATED).body(nouveauTicket);
     }
