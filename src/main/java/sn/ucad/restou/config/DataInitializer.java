@@ -42,10 +42,19 @@ public class DataInitializer {
                     Role.ADMIN);
             utilisateurRepository.save(aminata);
 
+            // Caissier
+            Utilisateur ousmane = new Utilisateur(
+                    "Mbaye", "Ousmane",
+                    "ousmane@ucad.edu.sn",
+                    passwordEncoder.encode("password123"),
+                    Role.CAISSIER);
+            utilisateurRepository.save(ousmane);
+
             System.out.println("=== Donnees de test chargees ===");
             System.out.println("ETUDIANT : fatou@ucad.edu.sn / password123");
             System.out.println("GERANT: moussa@ucad.edu.sn / password123");
             System.out.println("ADMIN: aminata@ucad.edu.sn / password123");
+            System.out.println("CAISSIER: ousmane@ucad.edu.sn / password123");
 
         };
     }

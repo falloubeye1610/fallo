@@ -51,6 +51,15 @@ public class EtudiantController {
     public ResponseEntity<Void> supprimer(@PathVariable Long id) {
         etudiantService.supprimer(id);
         return ResponseEntity.noContent().build();
-    
+
     }
+    
+    @GetMapping("/count")
+    @PreAuthorize("hasAnyRole('ADMIN', 'CAISSIER')")
+    public ResponseEntity<Long> count() {
+        return ResponseEntity.ok(etudiantService.count());
+    }
+
+    
+
 }

@@ -48,4 +48,9 @@ public class EtudiantService {
         etudiantRepository.delete(etudiant);
 
     }
+
+    public long count() {
+        return etudiantRepository.count();
+    }
+    
 }
