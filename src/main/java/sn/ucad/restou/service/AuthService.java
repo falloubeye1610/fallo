@@ -43,8 +43,12 @@ public class AuthService {
                 Role.ETUDIANT
             );
             
-        utilisateurRepository.save(utilisateur);
-        String token = jwtService.generateToken(utilisateur);
+            utilisateurRepository.save(utilisateur);
+        //créer le token JWT sans le role
+        //String token = jwtService.generateToken(utilisateur);
+        //créer le token JWT avec le role
+        //ajoute l'attribut role au payload du token pour que le client puisse le recuperer
+        String token = jwtService.generateToken(utilisateur, utilisateur.getRole().name());
         return new AuthResponse(
                 token,
                 utilisateur.getEmail(),
@@ -61,7 +65,11 @@ public class AuthService {
         Utilisateur utilisateur = utilisateurRepository
                 .findByEmail(request.getEmail())
                 .orElseThrow(() -> new RuntimeException("Utilisateur non trouve"));
-        String token = jwtService.generateToken(utilisateur);
+        //créer le token JWT sans le role
+        //String token = jwtService.generateToken(utilisateur);
+        //créer le token JWT avec le role
+        //ajoute l'attribut role au payload du token pour que le client puisse le recuperer
+        String token = jwtService.generateToken(utilisateur, utilisateur.getRole().name());
         return new AuthResponse(
                 token,
                 utilisateur.getEmail(),

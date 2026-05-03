@@ -69,7 +69,19 @@ public class JwtService {
     }
 
     private SecretKey getSignInKey() {
-    byte[] keyBytes = Decoders.BASE64.decode(secretKey);
-    return Keys.hmacShaKeyFor(keyBytes);
+        byte[] keyBytes = Decoders.BASE64.decode(secretKey);
+        return Keys.hmacShaKeyFor(keyBytes);
+    }
+
+    // Nouvelle methode : generer un token avec le role
+    public String generateToken(UserDetails userDetails, String role) {
+        Map<String, Object> extraClaims = new HashMap<>();
+        extraClaims.put("role", role);
+        return generateToken(extraClaims, userDetails);
+    }
+
+    // Nouvelle methode : extraire le role du token
+    public String extractRole(String token) {
+        return extractClaim(token, claims -> claims.get("role", String.class));
     }
 }

@@ -20,7 +20,7 @@ public class EtudiantService {
         return etudiantRepository.save(etudiant);
     }
 
-    public Iterable<Etudiant> recupererTous() {
+    public Iterable<Etudiant> listerTous() {
         // Logique pour récupérer tous les étudiants
         return etudiantRepository.findAll();
     }
@@ -30,7 +30,7 @@ public class EtudiantService {
         return etudiantRepository.findById(id);
     }
 
-    public Etudiant mettreAJour(Long id, Etudiant etudiantDetails) {
+    public Etudiant modifier(Long id, Etudiant etudiantDetails) {
         // Logique pour mettre à jour un étudiant (exemple : validation, transformation, etc.)
         // Ici, nous allons simplement retourner l'étudiant tel quel pour l'exemple
         Etudiant etudiant = etudiantRepository.findById(id)

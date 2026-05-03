@@ -56,7 +56,7 @@ class EtudiantServiceTest {
         when(etudiantRepository.findAll())
                 .thenReturn(Arrays.asList(etudiant, etudiant2));
         // ACT
-        Iterable<Etudiant> resultat = etudiantService.recupererTous();
+        Iterable<Etudiant> resultat = etudiantService.listerTous();
         // ASSERT
         assertNotNull(resultat);
         List<Etudiant> liste = (List<Etudiant>) resultat;
@@ -96,7 +96,7 @@ class EtudiantServiceTest {
                 .thenReturn(Optional.empty());
         // ACT & ASSERT
         assertThrows(ResourceNotFoundException.class, () -> {
-            etudiantService.mettreAJour(999L, etudiant);
+            etudiantService.modifier(999L, etudiant);
         });
         verify(etudiantRepository, never()).save(any());
     }
